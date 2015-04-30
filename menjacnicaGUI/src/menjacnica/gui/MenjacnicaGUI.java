@@ -47,7 +47,7 @@ public class MenjacnicaGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	JTextArea textArea = new JTextArea();
+	static JTextArea textArea = new JTextArea();
 
 	/**
 	 * Launch the application.
@@ -102,7 +102,7 @@ public class MenjacnicaGUI extends JFrame {
 				JFileChooser fc = new JFileChooser();
 				int returnVal = fc.showSaveDialog(contentPane);
 				
-				if(returnVal == fc.APPROVE_OPTION){
+				if(returnVal == JFileChooser.APPROVE_OPTION){
 					File fajl = fc.getSelectedFile();
 					String tekst = textArea.getText();
 					textArea.setText(tekst + "\n" + "Fajl je sacuvan na:" + fajl.getAbsolutePath());
@@ -181,6 +181,12 @@ public class MenjacnicaGUI extends JFrame {
 		addPopup(table, popupMenu);
 		
 		JMenuItem mntmDodajKurs = new JMenuItem("Dodaj kurs");
+		mntmDodajKurs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DodajKursGUI dk = new DodajKursGUI();
+				dk.setVisible(true);
+			}
+		});
 		popupMenu.add(mntmDodajKurs);
 		
 		JMenuItem mntmObriiKurs = new JMenuItem("Obri\u0161i kurs");
@@ -195,6 +201,12 @@ public class MenjacnicaGUI extends JFrame {
 		contentPane.add(panel, BorderLayout.EAST);
 		
 		JButton btnNewButton = new JButton("Dodaj kurs");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DodajKursGUI dk = new DodajKursGUI();
+				dk.setVisible(true);
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton.setPreferredSize(new Dimension(100, 23));
 		panel.add(btnNewButton);
