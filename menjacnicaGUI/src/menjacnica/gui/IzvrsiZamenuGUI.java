@@ -124,7 +124,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 				String noviPodaci = "Valuta: " + comboBox.getSelectedItem() + " Iznos: " + textFieldIznos.getText() +
 						" Kupovina/Prodaja: ";
 				if(rdbtnKupovina.isSelected() == true) MenjacnicaGUI.textArea.setText(noviPodaci + " Kupovina");
-						else MenjacnicaGUI.textArea.setText(noviPodaci + " Prodaja");
+						else MenjacnicaGUI.textArea.setText(MenjacnicaGUI.textArea.getText() + "\n" + noviPodaci + " Prodaja");
 				IzvrsiZamenuGUI.this.dispose();
 			}
 		});
